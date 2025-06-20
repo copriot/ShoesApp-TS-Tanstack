@@ -1,14 +1,16 @@
 import { Formik, Form } from "formik";
 import { type FC } from "react";
-import Input from "../../form/input";
+import Input from "../../components/form/input";
 import { initialRegisterValues } from "../../utils/constants";
 import type { RegisterValues } from "../../types";
 import { Link } from "react-router-dom";
 import { registerSchema } from "../../utils/schemas";
+import useAuth from "../../hooks/useAuth";
 
 const Register: FC = () => {
+  const { register } = useAuth();
   const onSubmit = (values: RegisterValues) => {
-    console.log(values);
+    register.mutate(values);
   };
   return (
     <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -33,6 +35,7 @@ const Register: FC = () => {
 
             <div>
               <button
+                disabled={register.isPending}
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >

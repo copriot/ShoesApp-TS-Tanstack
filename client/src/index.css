@@ -1,1 +1,38 @@
 @import "tailwindcss";
+/* loader  ve animasyonu*/
+.bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom, #e37b12, #44c7ff);
+  margin: 0 5px;
+  animation: bubbleAnimation 1.2s ease-in-out infinite;
+}
+.bubble:nth-child(1) {
+  animation-delay: 0s;
+  transform: translateY(-5px);
+}
+
+.bubble:nth-child(2) {
+  animation-delay: 0.3s;
+  /* 2. bubble'ın mevcut animasyonu devam eder */
+}
+
+.bubble:nth-child(3) {
+  animation-delay: 0.6s;
+  transform: translateY(-15px);
+}
+
+@keyframes bubbleAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.9;
+    transform: translateY(-10px);
+  }
+}
