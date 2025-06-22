@@ -1,4 +1,35 @@
 @import "tailwindcss";
+/* fontları import et */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@theme {
+  --font-rubik: "Rubik", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  --color-my-blue: #4a69e2;
+  --color-my-yellow: #ffa52f;
+  --color-my-white: #ffffff;
+  --color-my-faWhite: #fafafa;
+  --color-my-gray: #e7e7e3;
+  --color-my-grayMain: #70706e;
+  --color-my-grayDark: #232321;
+}
+
+@layer base {
+  body {
+    @apply py-[24px] px-[16px] xl:px-[60px] xl:py-[32px] md:py-[32px] md:px-[32px] lg:py-[32px] lg:px-[48px];
+  }
+}
+@layer components {
+  .header-buttons {
+    @apply outline-none border-none text-sm md:text-[14px] cursor-pointer hover:bg-my-grayMain/10 transition-all duration-300  p-4 font-semibold w-[100%] whitespace-nowrap hover:outline-none hover:border-none hover:shadow-none;
+  }
+}
+
+body {
+  background-color: var(--color-my-gray);
+  color: var(--color-my-grayDark);
+  font-family: var(--font-rubik);
+}
 /* loader  ve animasyonu*/
 .bubble {
   width: 30px;

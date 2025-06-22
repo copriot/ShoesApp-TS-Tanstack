@@ -17,7 +17,7 @@ const Protected: FC<ProtectedProps> = ({ allowedRoles }) => {
   if (loading) return <Loader />;
 
   //eğer rolü yetersizse login sayfasına yönlendir
-  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/login" />;
+  if (allowedRoles && !allowedRoles.includes(user?.role)) return <Navigate to="/login" />;
   //kullanıcı verisi yüklendiyse sayfayı göster
   if (user) {
     return (
