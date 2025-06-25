@@ -39,7 +39,7 @@ const UserInfo: FC = () => {
       >
         <IoPerson className="w-full h-full " />
         {user && isOpen && (
-          <div className="absolute  bg-my-gray rounded-sm shadow-lg top-5 lg:top-8 right-0 text-center border-none outline-none flex flex-col gap-2">
+          <div className="absolute  bg-my-gray rounded-sm shadow-lg top-5 lg:top-8 right-0 text-center border-none outline-none flex flex-col gap-2 z-10">
             <button className="header-buttons">
               {user.firstName} {user.lastName}
             </button>

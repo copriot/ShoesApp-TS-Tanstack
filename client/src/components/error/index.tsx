@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
-const Error: FC = () => {
-  return <div>Error</div>;
+const Error: FC<{ error: string }> = ({ error }) => {
+  return <div>{error}</div>;
 };
 
 export default Error;
