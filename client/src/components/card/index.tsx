@@ -9,7 +9,9 @@ const Card: FC<{ shoe: Product }> = ({ shoe }) => {
     <div className="flex flex-col justify-between">
       <div className="relative">
         <div className="p-2 bg-my-faWhite rounded-2xl xl:rounded-3xl w-full">
-          <Badge item={shoe} />
+          <div className="absolute">
+            <Badge item={shoe} />
+          </div>
           <img
             src={shoe.picture[0]}
             alt={shoe.name}
@@ -21,7 +23,7 @@ const Card: FC<{ shoe: Product }> = ({ shoe }) => {
         </h2>
       </div>
       <Link
-        to={`/product/${shoe._id}`}
+        to={`/shoe/${shoe._id}`}
         className="text-my-faWhite bg-my-grayDark flex items-center justify-center font-medium px-4 py-2 rounded-[8px] transition hover:bg-my-grayDark/90 max-sm:font-light max-lg:text-sm"
       >
         VIEW PRODUCT - &nbsp;

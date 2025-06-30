@@ -30,7 +30,7 @@ router.get("/:id", protect, async (req, res) => {
 // Create shoe (admin only)
 router.post("/", protect, admin, async (req, res) => {
   try {
-    const shoe = await Shoe.create({ ...req.body, picture: images.slice(0, 4) });
+    const shoe = await Shoe.create({ ...req.body, picture: images.slice(0, 5) });
     res.status(201).json(shoe);
   } catch (error) {
     res.status(500).json({ message: "Error creating shoe" });
@@ -40,7 +40,10 @@ router.post("/", protect, admin, async (req, res) => {
 // Update shoe (admin only)
 router.put("/:id", protect, admin, async (req, res) => {
   try {
-    const shoe = await Shoe.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const shoe = await Shoe.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!shoe) {
       return res.status(404).json({ message: "Shoe not found" });
     }

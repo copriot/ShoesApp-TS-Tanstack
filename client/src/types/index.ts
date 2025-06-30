@@ -56,8 +56,17 @@ interface Product {
   updatedAt: string;
 }
 
-type ProductFormValues = Omit<Product, "_id" | "__v" | "createdAt" | "updatedAt">;
-
+//type ProductFormValues = Omit<Product, "_id" | "__v" | "createdAt" | "updatedAt">;
+interface ProductFormValues {
+  name: string;
+  price: string;
+  discount: string;
+  color: string;
+  size: string;
+  description: string;
+  isNew: boolean;
+  gender: string;
+}
 export type {
   LoginValues,
   RegisterValues,

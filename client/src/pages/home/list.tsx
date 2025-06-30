@@ -7,7 +7,7 @@ import Card from "../../components/card";
 const List: FC = () => {
   const { shoes } = useShoes();
   const { isLoading, error, data } = shoes;
-  console.log(isLoading, error, data);
+  // console.log(isLoading, error, data);
 
   if (isLoading) return <Loader />;
   if (error) return <Error error={error.message} />;

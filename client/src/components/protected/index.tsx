@@ -12,12 +12,13 @@ const Protected: FC<ProtectedProps> = ({ allowedRoles }) => {
   //oturumu acık olan kullanıcı verisine eriş
   //hook kullanıldığı component renderlandığı anda api isteğini atıp veriyi alıyoruz
   const { user, loading, error } = useUser();
-  console.log(user);
+  // console.log(user);
   //kullanıcı verisi yüklenirken loader göster
   if (loading) return <Loader />;
 
   //eğer rolü yetersizse login sayfasına yönlendir
-  if (allowedRoles && !allowedRoles.includes(user?.role)) return <Navigate to="/login" />;
+  if (allowedRoles && !allowedRoles.includes(user?.role!))
+    return <Navigate to="/login" />;
   //kullanıcı verisi yüklendiyse sayfayı göster
   if (user) {
     return (

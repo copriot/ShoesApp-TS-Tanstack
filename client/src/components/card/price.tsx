@@ -1,7 +1,12 @@
 import type { FC } from "react";
 import type { Product } from "../../types";
 
-const Price: FC<{ item: Product }> = ({ item }) => {
+interface Props {
+  item: Product;
+  designs?: string;
+}
+
+const Price: FC<Props> = ({ item, designs }) => {
   let price = item.price;
 
   if (item.discount) {
@@ -9,7 +14,7 @@ const Price: FC<{ item: Product }> = ({ item }) => {
   }
 
   return (
-    <div className={`${item.discount ? "text-my-yellow" : "text-my-faWhite"}`}>
+    <div className={`${item.discount ? "text-my-yellow" : "text-my-faWhite"} ${designs}`}>
       $ {price.toFixed(2)}
     </div>
   );

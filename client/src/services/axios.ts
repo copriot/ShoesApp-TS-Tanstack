@@ -19,21 +19,25 @@ const api = axios.create({
 api.interceptors.response.use(
   (res) => res,
   async (error) => {
-    console.log("Ara yazılım hata yakaladı", error);
+    // console.log("Ara yazılım hata yakaladı", error);
     //hatayı aldığımız api isteğini sakla
     const orginalReq = error.config;
     //eğer hatanın kodu 401 ise acces tokenın süresi dolduysa
-    if (error.response.status === 401 && !orginalReq._retry) {
+    if (
+      error.response.status === 401 &&
+      !orginalReq._retry &&
+      error.response.data.message === "Access token expired"
+    ) {
       orginalReq._retry = true;
 
       //acces tokenı yenile
 
       try {
         const res = await api.post<AuthResponse>("/auth/refresh");
-        console.log("acces token yenilendi", res);
+        //console.log("acces token yenilendi", res);
         return api(orginalReq);
       } catch (err) {
-        console.log("access tokenı yenileme hatası", err);
+        //console.log("access tokenı yenileme hatası", err);
         //refresh tokenın süresi doldyusa
         await api.post("/auth/logout");
 
@@ -43,6 +47,7 @@ api.interceptors.response.use(
         return Promise.reject(err);
       }
     }
+    return Promise.reject(error);
   }
 );
 

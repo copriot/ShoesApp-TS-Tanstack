@@ -40,7 +40,7 @@ const useShoes = (id?: string) => {
       shoeApi.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["shoes"] });
-      navigate("/");
+      navigate("/admin");
       toast.success("Product updated successfully");
     },
     onError: () => {
@@ -53,7 +53,6 @@ const useShoes = (id?: string) => {
     mutationFn: (id: string) => shoeApi.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["shoes"] });
-      navigate("/");
       toast.success("Product deleted successfully");
     },
     onError: () => {

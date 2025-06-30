@@ -10,7 +10,7 @@ const Header: FC = () => {
   const { user, loading, error } = useUser();
   const { logout } = useAuth();
   return (
-    <header className="bg-my-faWhite grid grid-cols-3 items-center p-4 md:p-6 lg:p-8 xl:p-10 rounded-[24px] md:rounded-[12px]">
+    <header className="bg-my-faWhite grid grid-cols-3 items-center p-4 md:p-6 lg:p-8 xl:p-10 rounded-[24px] md:rounded-[12px] mb-[24px] md:mb-[28px] xl:mb-[32px]">
       <button className="md:hidden  cursor-pointer w-[20px] h-[20px]">
         <IoMenu className="w-full h-full text-xl " />
       </button>
@@ -26,9 +26,9 @@ const Header: FC = () => {
           Women <FaCaretDown />
         </Link>
       </nav>
-      <div className="flex justify-center items-center">
+      <Link to="/" className="flex justify-center items-center">
         <img src="/logo.svg" alt="kicks-logo" />
-      </div>
+      </Link>
       <UserInfo />
     </header>
   );

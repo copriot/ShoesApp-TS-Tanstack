@@ -6,7 +6,7 @@ const Badge: FC<{ item: Product }> = ({ item }) => {
 
   return (
     <span
-      className={`absolute top-2 left-2 text-my-faWhite rounded rounded-tl-2xl rounded-br-2xl p-1 ${
+      className={`top-2 left-2 text-my-faWhite rounded rounded-tl-2xl rounded-br-2xl p-1 max-w-[110px]  ${
         item.discount ? "bg-my-yellow" : "bg-my-blue"
       }`}
     >
